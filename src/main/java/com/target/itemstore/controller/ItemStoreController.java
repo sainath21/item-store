@@ -9,6 +9,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class ItemStoreController {
     @GetMapping("/items")
     String getItems() {
-        return "Hello";
+        return "Hello World";
     }
 }
