@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/item_store/v1")
+@RequestMapping("/item_store/v2")
 public class ItemStoreController {
     @GetMapping("/items")
     String getItems() {
