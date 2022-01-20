@@ -6,4 +6,6 @@ public interface ItemStoreDao {
     ItemCoreInformation getItemCoreInformation(Integer itemId);
 
     void saveItemCoreInformation(ItemCoreInformation item);
+
+    ItemCoreInformation getItemCoreInformation(String itemTitle);
 }

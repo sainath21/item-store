@@ -17,6 +17,11 @@ public class ItemStoreController {
         return itemStoreService.getItem(itemId);
     }
 
+    @GetMapping("/items")
+    Item getItemById(@RequestParam("title") String title) {
+        return itemStoreService.getItem(title);
+    }
+
     @PostMapping("/items")
     void postItem(@RequestBody Item item) {
         itemStoreService.saveItem(item);

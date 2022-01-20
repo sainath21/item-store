@@ -16,6 +16,11 @@ public class ItemStoreDaoImpl implements ItemStoreDao {
     }
 
     @Override
+    public ItemCoreInformation getItemCoreInformation(String itemTitle) {
+        return itemInformationRepository.findByItemTitle(itemTitle);
+    }
+
+    @Override
     public void saveItemCoreInformation(ItemCoreInformation itemCoreInformation) {
         System.out.println("save item: " + itemCoreInformation);
     }

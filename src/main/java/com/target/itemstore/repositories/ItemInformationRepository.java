@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ItemInformationRepository extends CrudRepository<ItemCoreInformation, Integer> {
+    ItemCoreInformation findByItemTitle(String itemTitle);
 }

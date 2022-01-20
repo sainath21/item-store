@@ -21,6 +21,16 @@ public class ItemStoreService {
         return item;
     }
 
+    public Item getItem(String itemTitle) {
+        ItemCoreInformation itemCoreInformation = itemStoreDao.getItemCoreInformation(itemTitle);
+        Item item = new Item();
+        item.setItemId(itemCoreInformation.getItemId());
+        item.setDescription(itemCoreInformation.getDescription());
+        item.setTitle(itemCoreInformation.getItemTitle());
+        item.setQty(itemCoreInformation.getQty());
+        return item;
+    }
+
     public void saveItem(Item item) {
         ItemCoreInformation itemCoreInformation = new ItemCoreInformation();
         itemCoreInformation.setItemId(item.getItemId());
