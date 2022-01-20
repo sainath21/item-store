@@ -5,6 +5,8 @@ import com.target.itemstore.repositories.ItemInformationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
 public class ItemStoreDaoImpl implements ItemStoreDao {
     @Autowired
@@ -18,6 +20,10 @@ public class ItemStoreDaoImpl implements ItemStoreDao {
     @Override
     public ItemCoreInformation getItemCoreInformation(String itemTitle) {
         return itemInformationRepository.findByItemTitle(itemTitle);
+    }
+
+    public List<ItemCoreInformation> getItemCoreInformationByQty(Integer qty) {
+        return itemInformationRepository.findByQty(qty);
     }
 
     @Override

@@ -6,6 +6,9 @@ import com.target.itemstore.model.ItemCoreInformation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 public class ItemStoreService {
     @Autowired
@@ -21,14 +24,33 @@ public class ItemStoreService {
         return item;
     }
 
-    public Item getItem(String itemTitle) {
+    public List<Item> getItem(String itemTitle) {
         ItemCoreInformation itemCoreInformation = itemStoreDao.getItemCoreInformation(itemTitle);
         Item item = new Item();
         item.setItemId(itemCoreInformation.getItemId());
         item.setDescription(itemCoreInformation.getDescription());
         item.setTitle(itemCoreInformation.getItemTitle());
         item.setQty(itemCoreInformation.getQty());
-        return item;
+
+        List<Item> items = new ArrayList<>();
+        items.add(item);
+
+        return items;
+    }
+
+    public List<Item> getItemByQty(Integer qty) {
+        List<ItemCoreInformation> itemCoreInformationList = itemStoreDao.getItemCoreInformationByQty(qty);
+        List<Item> items = new ArrayList<>();
+
+        for(ItemCoreInformation itemCoreInformation : itemCoreInformationList) {
+            Item item = new Item();
+            item.setItemId(itemCoreInformation.getItemId());
+            item.setDescription(itemCoreInformation.getDescription());
+            item.setTitle(itemCoreInformation.getItemTitle());
+            item.setQty(itemCoreInformation.getQty());
+            items.add(item);
+        }
+        return items;
     }
 
     public void saveItem(Item item) {
